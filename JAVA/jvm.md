@@ -71,19 +71,19 @@ Java는 객체를 생성하고 사용이 끝나면 자동으로 회수하여 메
 ## Runtime Data 영역
 Runtime Data 영역은 Stack, Method Area, Heap, Native method stack, PC Register로 이루어져 있다.
 
-### Stack
+###  1. Stack
 메서드의 실행과 관련된 데이터를 관리하는 메모리 공간으로 주로 지역 변수를 저장한다.
 메서드 호출 시마다 새로운 Stack 프레임이 생성되고, 메서드 실행이 완료되면 Stack 프레임을 제거한다.
 
-### Method Area
+### 2. Method Area
 Class에 대한 정보를 저장하는 영역이다. JVM에 의해 Java Class 파일이 로드되면 이 Class의 메타데이터(Class 정보와 관련된 데이터)와 정적 변수가 Method Area에 저장된다.
 
-### Heap
+### 3. Heap
 JVM에서 동적 메모리 할당을 담당하는 메모리 영역이다.
 Java에서 인스턴스와 배열 등 동적으로 생성되는 데이터는 Heap 영역에 저장된다.
 기본적으로 Heap 영역은 JVM이 실행되는 동안 가변적이며, GC에 의해 관리되는 공간이다.
 
-1. Young 영역
+### Young 영역
 새롭게 생성된 객체가 할당되는 영역
 대부분의 객체가 금방 Unreachable 상태가 되기 때문에 많은 객체가 Young 영역에 생성되었다가 사라진다.
 Young 영역에 대한 GC를 Minor GC라고 한다.
@@ -103,7 +103,7 @@ Young 영역은 새부적으로 Eden, Survivor 0, Survivor 1 3가지 영역으�
 >
 > 또 다른 이유로는 메모리 단편화를 방지하기 위함이다. S0과 S1을 번갈아 사용하는 방식은 복사가 이루어질 때마다 연속적인 메모리 공간을 사용하게 되어 메모리 단편화를 최소화 할 수 있다.
 
-2. Old 영역
+### Old 영역
 Young 영역에서 Reachable 상태를 유지하여 살아남은 객체가 복사되는 영역이다.
 Young 영역보다 크게 할당되며, 영역이 큰 만큼 GC는 적게 발생한다.
 Old 영역에 대한 GC를 Major GC 또는 Full GC라고 부른다.
