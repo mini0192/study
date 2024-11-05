@@ -1,3 +1,5 @@
+# DispatcherServlet
+
 ![img](https://jaegukim.github.io/assets/img/post/Spring/SpringMVC.png)
 
 DispatcherServlet은 HTTP 프로토콜로 들어오는 모든 요청을 받아 적합한 컨트롤러에 위임하는 역할을 한다.
