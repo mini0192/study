@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>My Page</title>
+</head>
+<body>
+<header>
+  <div th:replace="header :: siteHeader"></div>
+</header>
+<main>
+  <h2>Write</h2>
+  <form action="/boards" method="post">
+    <input type="text" style="width: 300px;" name="title"/><br/>
+    <textarea style="width: 300px;" rows="20" name="content"></textarea><br/>
+    <input type="submit" value="작성">
+  </form>
+</main>
+</body>
+</html>

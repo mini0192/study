@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>My Page</title>
+</head>
+<body>
+<header>
+  <div th:replace="header :: siteHeader"></div>
+</header>
+<main>
+  <h2>Board List</h2>
+  <ul>
+    <li th:each="board : ${boards}">
+      <a th:href="@{/boards/{id}(id=${board.id})}">
+        <h2 th:text="${board.title}"></h2>
+      </a>
+    </li>
+  </ul>
+  <a href="/boards/write">글쓰기</a>
+</main>
+</body>
+</html>
