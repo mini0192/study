@@ -1,0 +1,25 @@
+<h1 id="id">this is ID</h1>
+<h1 class="class">this is Class1</h1>
+<h1 class="class">this is Class2</h1>
+<button onclick="changeId()">ID 변경</button>
+<button onclick="changeClass()">Class 변경</button>
+<button onclick="test()">경고창</button>
+
+<script>
+    function changeId() {
+        const getId = document.getElementById("id");
+        getId.innerHTML="바꼈음"
+    }
+
+    function changeClass() {
+        const getClass = document.getElementsByClassName("class")
+
+        for(let i = 0; i < getClass.length; i++) {
+            getClass[i].innerHTML = "바뀜"
+        }
+    }
+
+    function test() {
+        alert("경고문")
+    }
+</script>

@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <div class="main">
+        <h2 class="title">
+            contact us
+        </h2>
+
+        <label class="subtitle">Your Email</label>
+        <input type="text" class="input" id="email" placeholder="email@example.com">
+
+        <div class="name">
+            <div class="a">
+                <label class="subtitle">First name</label>
+                <input type="text" class="input" id="fname">
+            </div>
+            <div class="b">
+                <label class="subtitle">Last name</label>
+                <input type="text" class="input" id="lname">
+            </div>
+        </div>
+
+        <label class="subtitle">Message</label>
+        <textarea class="textarea" id="message"></textarea>
+
+        <input type="checkbox">Subscribe
+        <input type="submit" value="SEND" class="button" onclick="button()">
+    </div>
+
+    <script>
+        function button() {
+            const email = document.getElementById("email").value;
+            const fname = document.getElementById("fname").value
+            const lname = document.getElementById("lname").value
+            const message = document.getElementById("message").value
+
+            alert("email: " + email + " fname: " + fname + " lname: " + lname + " message: "+ message)
+        }
+    </script>
+</body>
+</html>
