@@ -1,0 +1,1 @@
+print("your name is {} and {} years old".format("KIM", 30))

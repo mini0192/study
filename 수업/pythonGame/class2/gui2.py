@@ -1,4 +1,3 @@
-# 버튼 이벤트
 import tkinter
 import random
 
@@ -22,7 +21,7 @@ def clickEvent():
             print(data)
             if(count < minRank):
                 minRank = count
-                rankLabel["text"] = "TOP RANK: {}".format(minRank)
+                rankLabel["text"] = "TOP RANK: {} [{}]".format(nameEntry.get(), minRank)
             count = 0
             statusLabel["text"] = "YOU WIN"
         elif(data > num):
@@ -31,22 +30,28 @@ def clickEvent():
             statusLabel["text"] = "DOWN"
         count += 1
         countLabel["text"] = count
+        entry.delete(0, len(entry.get()))
+
 root = tkinter.Tk()
 
 root.title("First Program")
 root.geometry("800x600")
 
-titleLabel = tkinter.Label(root, text="UP & DOWN GAME", font=("System", 16))
-titleLabel.pack()
+tkinter.Label(root, text="UP & DOWN GAME", font=("System", 16)).pack()
 
 countLabel = tkinter.Label(root, text="0", font=("System", 16))
 countLabel.pack()
 
-statusLabel = tkinter.Label(root, text="", font=("System", 16))
+statusLabel = tkinter.Label(root, text="NOTHINH", font=("System", 16))
 statusLabel.pack()
 
+tkinter.Label(root, text="NUMBER", font=("System", 16)).pack()
 entry = tkinter.Entry(root)
 entry.pack()
+
+tkinter.Label(root, text="NAME", font=("System", 16)).pack()
+nameEntry = tkinter.Entry(root)
+nameEntry.pack()
 
 button = tkinter.Button(root, text="Button", font=("System", 16), command=clickEvent)
 button.pack()
