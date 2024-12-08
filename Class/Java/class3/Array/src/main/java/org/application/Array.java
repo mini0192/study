@@ -2,23 +2,30 @@ package org.application;
 
 import java.util.Arrays;
 
-public class Array{
+public class Array<E> implements CustomList<E> {
     private int index = -1;
     private int size = 10;
-    private int[] arr = {};
+    private Object[] arr = {};
 
     public Array() {
-        arr = new int[size];
+        arr = new Object[size];
     }
 
-    public void add(int data) {
+    @Override
+    public void add(E data) {
         if(index == size - 1)
             resize();
         arr[++index] = data;
     }
 
-    public int get(int index) {
-        return arr[index];
+    @Override
+    public E get(int index) {
+        return (E) arr[index];
+    }
+
+    @Override
+    public void remove(int index) {
+
     }
 
     private void resize() {

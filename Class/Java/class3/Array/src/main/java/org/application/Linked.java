@@ -1,19 +1,20 @@
 package org.application;
 
-public class Linked {
+public class Linked<E> implements CustomList<E> {
 
     private NodeLink head;
     private NodeLink start;
 
     static public class NodeLink {
-        int data;
+        Object data;
         NodeLink next;
-        NodeLink(int data) {
+        NodeLink(Object data) {
             this.data = data;
         }
     }
 
-    public void add(int data) {
+    @Override
+    public void add(E data) {
         NodeLink newNode = new NodeLink(data);
         if(start == null) {
             start = newNode;
@@ -24,19 +25,17 @@ public class Linked {
         head = newNode;
     }
 
-    public int get(int index) {
+    @Override
+    public E get(int index) {
         NodeLink current = start;
         for(int i = 0; i < index; i++) {
-            if(current == null) {
-                System.out.println("길이 초과");
-                return -1;
-            }
             current = current.next;
         }
-        if(current == null) {
-            System.out.println("길이 초과");
-            return -1;
-        }
-        return current.data;
+        return (E) current.data;
+    }
+
+    @Override
+    public void remove(int index) {
+
     }
 }
