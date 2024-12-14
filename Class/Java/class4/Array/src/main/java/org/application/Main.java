@@ -2,7 +2,7 @@ package org.application;
 
 public class Main {
     public static void main(String[] args) {
-        CustomList<Integer> arr = new Array<>();
+        CustomStack<Integer> arr = new Linked<>();
 
         arr.add(1);
         arr.add(2);
@@ -10,10 +10,10 @@ public class Main {
         arr.add(4);
         arr.add(5);
 
-        System.out.println(arr.size());
-
-        for (int i = 0; i < arr.size(); i++) {
-            System.out.println(arr.get(i));
-        }
+        System.out.println(arr.pop());
+        System.out.println(arr.pop());
+        System.out.println(arr.pop());
+        System.out.println(arr.pop());
+        System.out.println(arr.pop());
     }
 }

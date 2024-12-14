@@ -57,7 +57,7 @@ public class Linked<E> implements CustomList<E>, CustomStack<E>, CustomQueue<E> 
     }
 
     @Override
-    public E stackPop() {
+    public E pop() {
         size--;
         NodeLink current = head;
         if(current.prev == null) {
@@ -71,7 +71,7 @@ public class Linked<E> implements CustomList<E>, CustomStack<E>, CustomQueue<E> 
     }
 
     @Override
-    public E queuePop() {
+    public E poll() {
         size--;
         NodeLink current = start;
         if(current.next == null) {
