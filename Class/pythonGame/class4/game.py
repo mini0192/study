@@ -10,15 +10,15 @@ class Enemy:
         self.speed: int = speed
         self.x: int = x
         self.y: int = 0
-    
-    def getPosition(self) -> List[int]:
-        return [self.x, self.y]
+
+    def move(self) -> None:
+        self.y += self.speed
     
     def getRect(self) -> pygame.Rect:
         return pygame.Rect(self.x - self.size, self.y - self.size, self.size * 2, self.size * 2)
-    
-    def move(self) -> None:
-        self.y += self.speed
+
+    def getPosition(self) -> List[int]:
+        return [self.x, self.y]
 
 class Bullet:
     def __init__(self, x: int, y: int) -> None:
@@ -83,6 +83,8 @@ count: int = 0
 gameOut: bool = False
 score: int = 0
 
+lastBullet: int = 0
+
 while True:
     if gameOut:
         break
@@ -125,13 +127,14 @@ while True:
     if keys[pygame.K_RIGHT]:
         player.move("r")
 
-    if keys[pygame.K_SPACE]:
-        bullets.append(Bullet(player.x, player.y))
-
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
+
+    if (count - lastBullet) > 30:
+            bullets.append(Bullet(player.x, player.y))
+            lastBullet = count
 
     if(count % 30 == 0):
         enemySpeed: int = random.randint(1, 10)
