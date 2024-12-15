@@ -30,10 +30,19 @@ public class Linked<E> implements CustomList<E>, CustomStack<E>, CustomQueue<E> 
 
     @Override
     public E get(int index) {
-        NodeLink current = start;
-        for(int i = 0; i < index; i++) {
-            current = current.next;
+        NodeLink current;
+        if(index > (size / 2)) {
+            current = head;
+            for(int i = size; i > index + 1; i--) {
+                current = current.prev;
+            }
+        } else {
+            current = start;
+            for(int i = 0; i < index; i++) {
+                current = current.next;
+            }
         }
+
         return (E) current.data;
     }
 
